@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -36,3 +38,15 @@
     transform: rotate(360deg);
   }
 }
+ a{
+  color: rgb(148, 134, 134);
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  font-size: larger;
+  font-family: "quicksand";
+  position:relative ;
+
+
+}
+
