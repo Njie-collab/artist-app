@@ -8,9 +8,10 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-
 import Bg2 from "../componnents/Bg2.jpg";
 import Images from "../componnents/Images/Bg6.jpg"
+import CreateUsers from "../componnents/CreateUsers.js";
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -25,7 +26,10 @@ const useStyles = makeStyles({
 const Sidebar = () => {
   const classes = useStyles();
   return (
+    
     <Card className={classes.root}>
+      
+  
       <CardActionArea>
         <CardMedia className={classes.media} image={Bg2} />
         {/* <Image  src={Bg2}/> */}
@@ -45,6 +49,7 @@ const Sidebar = () => {
         quod aliquam expedita, vero deleniti neque qui quos accusantium
         inventore porro earum adipisci modi.
       </CardContent>
+      
     </Card>
   );
 };

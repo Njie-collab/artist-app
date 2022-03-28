@@ -16,8 +16,15 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import ArrowBack from "@mui/icons-material/ArrowBack";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Inbox from "../componnents/Inbox.jsx";
+import { useState } from "react";
+import { Sling as Hamburger } from "hamburger-react";
+import { NavLink } from "react-router-dom";
+import SearchBar from "../componnents/search/SearchBar";
+import List from "../componnents/search/ List";
+import  "../componnents/Nav.css"
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -60,12 +67,28 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const [open, setOpen] = useState(false);
+  const [like, setLikes] = useState(false);
+  const [messages, setMessage] = useState(false);
+
   let navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [inputtext, setInputText] = useState("");
+
+  let inputHandler = (e) => {
+    //convert input text to lower case
+    var lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const [inbox, setInbox] = useState("");
+
+  const handleInbox = (e) => {
+    setInbox(e.currentTarget);
+  };
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -83,7 +106,6 @@ export default function PrimarySearchAppBar() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-  
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -102,11 +124,17 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={() => handleMenuClose}
     >
-      <MenuItem onClick={() => handleMenuClose("/")}>Home</MenuItem>
-      <MenuItem onClick={() => navigate("/holder")}>Gallery</MenuItem>
+      <MenuItem onClick={() => handleMenuClose("/")}>x</MenuItem>
+      <MenuItem onClick={() => navigate("/")}></MenuItem>
+      <MenuItem onClick={() => navigate("/signup")}>SignUp</MenuItem>
+      <MenuItem onClick={() => navigate("/login")}>Login</MenuItem>
+      <MenuItem onClick={() => navigate("/holder")}>Holder</MenuItem>
       <MenuItem onClick={() => navigate("/scetion")}>Upcoming Dates</MenuItem>
       <MenuItem onClick={() => navigate("/sidebar")}>About</MenuItem>
-      <MenuItem onClick={() => navigate("/home")}>My account</MenuItem>
+      <MenuItem onClick={() => navigate("/home")}>Home</MenuItem>
+      <MenuItem onClick={() => navigate("/search")}>Search</MenuItem>
+      <MenuItem onClick={() => navigate("/displaydata")}>DisplayData</MenuItem>
+      <MenuItem onClick={() => navigate("/inbox")}>Inbox</MenuItem>
     </Menu>
   );
 
@@ -133,6 +161,7 @@ export default function PrimarySearchAppBar() {
             <MailIcon />
           </Badge>
         </IconButton>
+
         <p>Messages</p>
       </MenuItem>
 
@@ -166,26 +195,52 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} className="main-nav">
       <AppBar position="static" style={{ background: "#222" }}>
         <Toolbar>
           <IconButton
-            size="large"
+            // size="large"
             edge="start"
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
+            onClick={() => navigate("/")}
+            style={{ background: "tomato" }}
           >
             <ArrowBack
               style={{ background: "tomato" }}
               onClick={() => navigate("/holder")}
             />
-            <MenuIcon
-              style={{ background: "red" }}
-              onClick={() => navigate("/scetion")}
-            >
-              Sidebar
-            </MenuIcon>
+            <Hamburger
+              label="Show menu"
+              rounded
+              size={20}
+              toggled={open}
+              toggle={setOpen}
+              direction="left"
+              duration={0.8}
+              distance="lg"
+              //   color="#4FD1C5"
+              easing="ease-in"
+              //   hideOutline={false}
+              onClick={() => navigate("/inbox")}
+            />
+
+            {open && (
+              <ul className="modalcontainer">
+                {/* <button onClick={() => setOpen(false)}>CloseX</button> */}
+                <NavLink to="/signup">
+                  <li className="title1">Singup</li>
+                </NavLink>
+
+                <NavLink to="login">
+                  <li className="title2">Login</li>
+                </NavLink>
+                <NavLink to="inbox">
+                  <li className="title3">Inbox</li>
+                </NavLink>
+              </ul>
+            )}
           </IconButton>
 
           <Typography
@@ -205,6 +260,7 @@ export default function PrimarySearchAppBar() {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
+              onChange={(e) => {setInputText(e.target.value)}}
             />
           </Search>
 
@@ -216,8 +272,8 @@ export default function PrimarySearchAppBar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
+              <Badge badgeContent={21} color="error">
+                <MailIcon onClick={handleInbox} />
               </Badge>
             </IconButton>
 

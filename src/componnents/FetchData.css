@@ -1,0 +1,27 @@
+.fetchdata-div {
+display:flex ;
+justify-content:center;
+flex-wrap:wrap-reverse ;
+flex-direction: column;
+padding:10px;
+margin:10px;
+align-items: center;
+
+}
+.showdata-div {
+display:flex ;
+justify-content:center;
+align-items: center;
+padding:10px;
+margin:10px
+
+}
+.showdata-btn {
+display:flex ;
+justify-content:center;
+width: auto;
+padding:10px;
+margin:10px;
+background-color:rgba(112, 112, 173, 0.616);
+align-items: center;
+}

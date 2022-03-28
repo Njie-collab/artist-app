@@ -1,0 +1,17 @@
+.inbox-div{
+display:flex ;
+justify-content:center;
+width: auto;
+}
+.falshmessage-btn {
+    color: red;
+    border-radius:50%;animation-play-state: running;
+}
+
+.falshmessage-btn:hover{
+    color: violet;
+    cursor: pointer;
+    text-shadow: chartreuse;
+    font-weight: 14px;
+    
+}
