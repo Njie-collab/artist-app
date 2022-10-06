@@ -4,7 +4,7 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import { makeStyles } from "@mui/styles";
-import Images from "../componnents/Images/Bg4.jpg";
+// import Images from "../../public/Images/Bg4.jpg";
 
 const useStyles = makeStyles({
   root: {
@@ -25,7 +25,7 @@ const Scetion = () => {
   return (
     <Card className={classes.root} maxWidth="345">
       <CardActionArea>
-        <CardMedia className={classes.media} image={Images} />
+        <CardMedia className={classes.media} image="/Images/Bg4.jpg" />
         <CardContent>
           <h1> Upcoming Dates 2022</h1>
 

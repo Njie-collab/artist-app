@@ -108,6 +108,7 @@ export default function PrimarySearchAppBar() {
   };
 
   const menuId = "primary-search-account-menu";
+
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -135,6 +136,7 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={() => navigate("/search")}>Search</MenuItem>
       <MenuItem onClick={() => navigate("/displaydata")}>DisplayData</MenuItem>
       <MenuItem onClick={() => navigate("/inbox")}>Inbox</MenuItem>
+      <MenuItem onClick={() => navigate("/gallery")}>Gallery</MenuItem>
     </Menu>
   );
 
@@ -186,6 +188,7 @@ export default function PrimarySearchAppBar() {
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
           color="inherit"
+          
         >
           <AccountCircle />
         </IconButton>
@@ -255,7 +258,7 @@ export default function PrimarySearchAppBar() {
 
           <Search>
             <SearchIconWrapper>
-              <SearchIcon />
+              <SearchIcon  onChange={(e) => {setInputText(e.target.value)}}/>
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"

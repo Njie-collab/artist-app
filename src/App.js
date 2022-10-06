@@ -16,9 +16,13 @@ import Inbox from "./componnents/Inbox";
 import Login2 from "./componnents/Login2";
 import Toggle2 from "./componnents/toggle/Toggle2";
 import SearchBar from "./componnents/search/SearchBar.js";
+import Gallery from "./componnents/Gallery"
 
 function App() {
+  
+
   return (
+
     <Router>
       <Nav></Nav>
       <Toggle2 />
@@ -36,6 +40,7 @@ function App() {
         <Route path="/search" element={<SearchBar />} />
         <Route path="/displaydata" element={<DisplayData />} />
         <Route path="/inbox" element={<Inbox />} />
+        <Route path="/gallery" element={<Gallery/>} />
       </Routes>
       {/* <Link className="active-link" to="/"></Link>
         <Link to="/home">Home</Link>

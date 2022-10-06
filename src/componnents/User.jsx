@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import SendIcon from "@mui/icons-material/Send";
+import Button from "@mui/material/Button";
+// import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import Card from "../componnents/card/Card"
 import axios from "axios"
 
 const storedId = JSON.parse(localStorage.getItem("user-id")) || "";
@@ -26,13 +30,14 @@ const User = () => {
           .then((resp) => {
             if (!resp.ok) {
               /* setLogin(false); */
+              console.log(resp);
               throw new Error(resp.message);
             } else {
               setLogIn(true);
               localStorage.setItem("user-id", JSON.stringify(resp));
               // setLogin(true);
               setError(null);
-              navigate("/", { replace: true });
+              navigate("/home",{ replace: true });
             }
           })
           .catch((error) => {
@@ -77,11 +82,15 @@ const User = () => {
           name="email"
           placeholder="email"
           value={form.email}
-          type="password"
+          type="email"
+          autoComplete="on"
           onChange={handleFormChange}
         />
-        <label for="examplePassword">Email</label>
+        <label for="exampleemail" htmlFor="exampleemail">
+          Email
+        </label>
       </formGroup>
+
       <formGroup>
         <input
           required={true}
@@ -90,13 +99,34 @@ const User = () => {
           placeholder="Password"
           value={form.password}
           type="password"
+          autoComplete="on"
           onChange={handleFormChange}
         />
-        <label for="examplePassword">Password</label>
+        <label for="examplePassword" htmlFor="examplePassword">
+          Password
+        </label>
       </formGroup>
-      <input type="submit" value="submit"/>
+      {/* <input type="submit" value="submit" navigate={"/home"} /> */}
+      <div onClick={()=>{
+      }}>
+        <Button
+          navigate={"/home"}
+          type="submit"
+          value="submit"
+          variant="contained"
+          endIcon={<SendIcon />}
+          // onSubmit={"form"}
+        >
+          Send
+        </Button>
+      </div>
     </form>
   );
 };
 
 export default User;
+
+ {/* {login ? (
+      <>
+      <Card/>
+      </>): ()} */}

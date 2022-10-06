@@ -6,14 +6,13 @@ import { Container } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
-import Images2 from "../componnents/Images/Bg11.jpg";
-import Images3 from "../componnents/Images/Bg12.jpg";
-import Images4 from "../componnents/Images/Bg14.jpg";
-import Images5 from "../componnents/Images/Bg15.jpg";
+// import Images2 from "../componnents/Images/Bg11.jpg";
+// import Images3 from "../componnents/Images/Bg12.jpg";
+// import Images4 from "../componnents/Images/Bg14.jpg";
+// import Images5 from "../componnents/Images/Bg15.jpg";
 
 const Holder = () => {
   return (
-    
     <Container className="card">
       WELCOME TO OUR GALLERY
       <Grid
@@ -30,7 +29,12 @@ const Holder = () => {
         <Grid item xs={12} sm={6} md={3}>
           <CardActionArea>
             <CardMedia>
-              <img src={Images2} alt="Bg11.jpeg" width="240" height="100%" />
+              <img
+                src="/Images/Bg11.jpg"
+                alt="Bg11.jpeg"
+                width="240"
+                height="100%"
+              />
             </CardMedia>
             <CardContent>
               Hello SIDEBAR Lorem, ipsum dolor sit amet consectetur adipisicing
@@ -44,11 +48,16 @@ const Holder = () => {
         <Grid item xs={12} sm={6} md={3}>
           <CardActionArea>
             <CardMedia>
-              <img src={Images3} alt="Bg12.jpg" width="240px" height="300px" />
+              <img
+                src="/Images/Bg12.jpg"
+                alt="Bg12.jpg"
+                width="240px"
+                height="300px"
+              />
             </CardMedia>
             <CardContent>
               Hello SIDEBAR Lorem, ipsum dolor sit amet consectetur adipisicing
-              elit. Blanditiis hic saepe distinctio sapiente numquam 
+              elit. Blanditiis hic saepe distinctio sapiente numquam
             </CardContent>
           </CardActionArea>
         </Grid>
@@ -56,7 +65,12 @@ const Holder = () => {
         <Grid item xs={12} sm={6} md={3}>
           <CardActionArea>
             <CardMedia>
-              <img src={Images4} alt="Bg7.jpg" width="240px" height="100%" />
+              <img
+                src="/Images/Bg7.jpg"
+                alt="Bg7.jpg"
+                width="240px"
+                height="100%"
+              />
             </CardMedia>
             <CardContent>
               Hello SIDEBAR Lorem, ipsum dolor sit amet consectetur adipisicing
@@ -70,7 +84,7 @@ const Holder = () => {
         <Grid item xs={12} sm={6} md={3}>
           <CardActionArea>
             <CardMedia>
-              <img src={Images5} alt="Bg15.jpg" width="240px" height="100%" />
+              <img src="/Images/Bg15.jpg" alt="Bg15.jpg" width="240px" height="100%" />
             </CardMedia>
             <CardContent>
               Hello SIDEBAR Lorem, ipsum dolor sit amet consectetur adipisicing

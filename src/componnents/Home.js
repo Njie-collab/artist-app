@@ -21,7 +21,7 @@ const Home = () => {
       <p className="displaynames-p" key={names} >
         <span>
           <i>
-            {names}
+        {names}
             </i>
         </span>
       </p>
@@ -40,12 +40,12 @@ const Home = () => {
         <div className="home-div">
           {removeusers}
           <button className="homedelete-btn" onClick={handleDelete}>
+            
             <Tooltip title="Delete">
               <IconButton>
                 <DeleteIcon />
               </IconButton>
             </Tooltip>
-            
           </button>
         </div>
       </section>
