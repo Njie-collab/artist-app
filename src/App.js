@@ -24,7 +24,7 @@ function App() {
   return (
 
     <Router>
-      <Nav>Navlinksss</Nav>
+      <Nav>Navlinkssss</Nav>
       <Toggle2 />
       {/* <SearchBar /> */}
 
